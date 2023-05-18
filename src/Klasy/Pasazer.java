@@ -1,6 +1,6 @@
 package Klasy;
 import java.util.*;
-public class Pasazer {
+public class Pasazer extends Klient{
     private long id;
     private String imie,nazwisko;
     private int nr_tel;

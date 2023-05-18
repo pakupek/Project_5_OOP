@@ -3,21 +3,30 @@ import java.util.ArrayList;
 import java.util.List;
 public class Sys_rezerwacji {
 
-    private List<Rezerwacja> rezerwacje = new ArrayList<>();
+    private List<Klient> klienci = new ArrayList<>();
 
-    public void dodajRezerwacje(Rezerwacja r){  //dodawanie rezerwacji do systemu
-        rezerwacje.add(r);
+    public void dodajKlienta(Klient k){  //dodawanie rezerwacji do systemu
+        klienci.add(k);
     }
-    public void usunRezerwacje(Rezerwacja r){   //usuwanie rezerwacji z systemu
-        rezerwacje.remove(r);
+    public void usunKlienta(Klient k){   //usuwanie rezerwacji z systemu
+        klienci.remove(k);
     }
 
     public String lista_rezerwacji(){   //wyświetlenie dostępnych rezerwacji
         String str = "";
+        String str2 = "";
         String tytul = "\t\tAktualne rezerwacje\nNr\t\tWłaściciel\t\tData\n";
         int i = 1;
-        for(Rezerwacja rezerwacja : rezerwacje){
-            str +=  "#"+ i + "\t"+rezerwacja.data_wlasciciel() + "\n";
+        for(Klient klient : klienci){
+            if(klient instanceof Pasazer){
+                for(Rezerwacja rezerwacja : klient.listaRezerwacji()){
+                    str += "#"+i+"\t"+ rezerwacja.data_wlasciciel() + "\n";
+                }
+
+            }
+            else {
+                str2 += "#"+i+"\t";
+            }
             i++;
         }
         return tytul + str;
