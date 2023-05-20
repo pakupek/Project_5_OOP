@@ -2,6 +2,7 @@ package Klasy;
 
 import java.util.Date;
 
+
 public class Rezerwacja {
     private long id;
     private Date data_rezerwacji;
@@ -23,5 +24,9 @@ public class Rezerwacja {
     }
     public String daneRezerwacji(){ //wyświetlenie pełnych danych rezerwacji
         return "Data: " + this.data_rezerwacji + "\nWłaściciel:\n" + this.pasazer.danePasazera() + "\nSamolot:\n" + this.samolot.daneSamolotu();
+    }
+
+    public Date getData(){
+        return this.data_rezerwacji;
     }
 }

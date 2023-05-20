@@ -4,6 +4,7 @@ public class Pasazer extends Klient{
     private long id;
     private String imie,nazwisko;
     private int nr_tel;
+    //private List<Rezerwacja> rezerwacje = new ArrayList<>();
 
     public Pasazer(String imie,String nazwisko,int nr_telefonu){
         long  r = new Random().nextLong();
@@ -17,5 +18,10 @@ public class Pasazer extends Klient{
     }
     public String danePasazera(){
         return "Imie: " + this.imie + "\nNazwisko: " + this.nazwisko + "\nNr telefonu: " + this.nr_tel + "\nId: " + this.id;
+    }
+
+    @Override
+    public String toString(){
+        return "Imie: " + this.imie + "\nNazwisko: " + this.nazwisko + "\nNr telefonu: " + this.nr_tel + "\nId: " + this.id + "\n";
     }
 }
