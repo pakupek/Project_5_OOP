@@ -1,32 +1,19 @@
 package Klasy;
 
-import java.util.Date;
-
-
 public class Rezerwacja {
-    private long id;
-    private Date data_rezerwacji;
-    private Pasazer pasazer;
-    private String status;
-    private int ilosc_miejsc;
-    private Samolot samolot;
+    private Klient klient;
+    private int Liczba_miejsc;
 
-    public Rezerwacja(Date data, Pasazer pasazer, int ilosc, Samolot samolot){
-        this.data_rezerwacji = data;
-        this.pasazer = pasazer;
-        this.ilosc_miejsc = ilosc;
-        this.samolot = samolot;
+    public Rezerwacja(Klient k, int ilosc_miejsc){
+        this.klient = k;
+        this.Liczba_miejsc = ilosc_miejsc;
 
     }
-    public String data_wlasciciel(){    //pobranie od pasażera imie i nazwisko oraz dodanie daty
-        String str = this.pasazer.dane_personalne() + "\t"+this.data_rezerwacji;
-        return str;
-    }
-    public String daneRezerwacji(){ //wyświetlenie pełnych danych rezerwacji
-        return "Data: " + this.data_rezerwacji + "\nWłaściciel:\n" + this.pasazer.danePasazera() + "\nSamolot:\n" + this.samolot.daneSamolotu();
+    public Klient getKlient(){
+        return this.klient;
     }
 
-    public Date getData(){
-        return this.data_rezerwacji;
+    public int getLiczba_miejsc(){
+        return this.Liczba_miejsc;
     }
 }
