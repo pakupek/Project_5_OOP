@@ -16,6 +16,7 @@ public class Lot {
         this.samolot = s;
         this.trasa = t;
         this.Czas_odlotu = czas_odlotu;
+        this.Wolne_miejsca = s.getLiczba_miejsc();
     }
 
     public int getId(){
@@ -24,5 +25,19 @@ public class Lot {
 
     public int getWolne_miejsca(){
         return this.Wolne_miejsca;
+    }
+
+    public void dodajRezerwacje(Rezerwacja r){
+        rezerwacje.add(r);
+        Wolne_miejsca -= r.getLiczba_miejsc();
+    }
+
+    public void usunRezerwacje(Rezerwacja r){
+        rezerwacje.remove(r);
+        Wolne_miejsca += r.getLiczba_miejsc();
+    }
+
+    public LocalDateTime getCzas_odlotu(){
+        return this.Czas_odlotu;
     }
 }

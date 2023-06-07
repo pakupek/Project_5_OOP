@@ -33,7 +33,7 @@ public class Sys_rezerwacji {
         samoloty.remove(s);
     }
 
-    public void dodajTrase(int Idlotniska_pocz, int Idlotniska_kon, float Dystans, int czas){
+    public void dodajTrase(Trasa t){ trasy.add(t);
     }
 
     public List<Klient> getKlienci(){

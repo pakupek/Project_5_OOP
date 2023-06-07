@@ -5,10 +5,10 @@ public class Samolot {
     private int liczba_miejsc;
     private float zasieg;
 
-    public Samolot(String nazwa,String typ, int liczba_miejsc,float zasieg){
+    public Samolot(String nazwa,String typ, int miejsca,float zasieg){
         this.nazwa = nazwa;
         this.typ = typ;
-        this.liczba_miejsc = liczba_miejsc;
+        this.liczba_miejsc = miejsca;
         this.zasieg = zasieg;
     }
 

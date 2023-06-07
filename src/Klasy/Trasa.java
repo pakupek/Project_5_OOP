@@ -20,4 +20,8 @@ public class Trasa {
     public float getDystans(){
         return this.Dystans;
     }
+
+    public String toString(){
+        return "Miejsce odlotu: "+this.miejsce_odlotu.getNazwa()+"\nMiejsce przylotu: "+this.miejsce_przylotu.getNazwa()+"\nDystans: "+this.Dystans+"km"+"\nCzas: "+this.Czas;
+    }
 }
