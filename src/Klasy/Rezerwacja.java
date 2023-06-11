@@ -16,4 +16,8 @@ public class Rezerwacja {
     public int getLiczba_miejsc(){
         return this.Liczba_miejsc;
     }
+
+    public String toString(){
+        return this.getKlient()+"\nIlość miejsc: "+this.getLiczba_miejsc();
+    }
 }

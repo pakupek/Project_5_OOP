@@ -20,7 +20,7 @@ public class Firma extends Klient{
     }
 
     public String toString(){
-        return "Nazwa: " + this.Nazwa + "\tKRS: " + this.KRS;
+        return "\nNazwa: " + getNazwa() + "\nKRS: " + getKRS();
     }
 
     public String getKRS(){

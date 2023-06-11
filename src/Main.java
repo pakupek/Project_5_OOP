@@ -13,15 +13,13 @@ public class Main {
 
         //tworzenie firmy
         Firma f1 = new Firma(8353,"Firma A","33216578");
+        Firma f2 = new Firma(1,"Firma B","323257765");
 
         //tworzenie samolotu
         Samolot s1 = new Samolot("Samolot 1","Pasażerski",210,630);
 
         //tworzenie rezerwacji
         Rezerwacja r1 = new Rezerwacja(p1,1);
-
-        //Rezerwacja r1 = new Rezerwacja(new Date(120,3,21,30,15),p1,1,s1);
-        //Rezerwacja r2 = new Rezerwacja(new Date(120,3,21,30,15),p2,1,s1);
 
         //tworzenie lotniska
         Lotnisko l1 = new Lotnisko("Lotnisko Chopin'a","Warszawa","Polska");
@@ -32,19 +30,23 @@ public class Main {
 
         //tworzenie lotu
         Lot lt1 = new Lot( new Random().nextInt(),s1,t1, LocalDateTime.now());
-        lt1.dodajRezerwacje(r1);
 
-        //dodawanie rezerwacji do systemu
+
+        //dodawanie danych do systemu
         sys.dodajKlienta(p1);
+        sys.dodajKlienta(f1);
+        sys.dodajKlienta(f2);
         sys.dodajSamolot(s1);
         sys.dodajTrase(t1);
+        sys.dodajLot(lt1);
 
+        sys.utworzRezerwacje(p1,2,lt1); //klient tworzy rezerwacje lotu
 
-        System.out.println(sys.getKlienci()); //lista rezerwacji w systemie
+        System.out.println(sys.getKlienci());
         System.out.println(lt1.getCzas_odlotu());
-
-        //System.out.println(r1.daneRezerwacji()+"\n\n"+r2.daneRezerwacji()); //wyswietlanie danych rezerwacji
-        //System.out.println(p1.danePasazera()+"\n\n"+p2.danePasazera()); //wypisanie danych pasażera
-        //System.out.println(sys.getKlienci());   //wyswietlenie wszystkich klientow z systemu
+        System.out.println("Loty:\n"+sys.getLoty());    //lista lotów
+        System.out.println("Lista rezerwacji:\n"+sys.listaRezerwacji());    //lista rezerwacji
+        System.out.println("Lista samolotów:\n"+sys.getSamoloty()); //lista amolotów
+        sys.usunRezerwacje(p1,lt1); //Usuwanie rezerwacji klienta dla danego lotu
     }
 }
