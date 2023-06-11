@@ -3,14 +3,14 @@ import java.util.*;
 public class Firma extends Klient{
     private String Nazwa,KRS;
 
-    public Firma(String nazwa,String krs){
-        int r = new Random().nextInt();
+    public Firma(int Id,String nazwa,String krs){
+        super(Id);
         this.Nazwa = nazwa;
         this.KRS = krs;
-        super.Id = r;
     }
 
     public Firma(Firma f){
+        super(f.Id);
         this.Nazwa = f.Nazwa;
         this.KRS = f.KRS;
     }

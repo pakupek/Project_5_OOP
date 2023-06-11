@@ -2,14 +2,12 @@ package Klasy;
 
 import java.util.Random;
 
-public class Klient {
+abstract class Klient {
     protected int Id;
 
-    public Klient(){
-        int r = new Random().nextInt();
-        this.Id = r;
+    public Klient(int Id){
+        this.Id= Id;
     }
-
     public int getId(){
         return this.Id;
     }

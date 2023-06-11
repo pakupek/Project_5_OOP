@@ -9,12 +9,10 @@ public class Main {
         Sys_rezerwacji sys = new Sys_rezerwacji();
 
         //tworzenie nowych pasażerów
-        Pasazer p1 = new Pasazer("Adam","Akimowicz",255437996,533042402);
+        Pasazer p1 = new Pasazer(1932,"Adam","Akimowicz",255437996,533042402);
 
         //tworzenie firmy
-        Firma f1 = new Firma("Firma A","33216578");
-
-
+        Firma f1 = new Firma(8353,"Firma A","33216578");
 
         //tworzenie samolotu
         Samolot s1 = new Samolot("Samolot 1","Pasażerski",210,630);
@@ -30,7 +28,7 @@ public class Main {
         Lotnisko l2 = new Lotnisko("Lotnisko B","Kraków","Polska");
 
         //tworzenie trasy
-        Trasa t1 = new Trasa(443,1,l1,l2);
+        Trasa t1 = new Trasa(443,1540,l1,l2,180);
 
         //tworzenie lotu
         Lot lt1 = new Lot( new Random().nextInt(),s1,t1, LocalDateTime.now());

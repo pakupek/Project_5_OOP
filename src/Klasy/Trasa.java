@@ -1,27 +1,54 @@
 package Klasy;
 
 public class Trasa {
-    private int Id;
-    private float Dystans;
+    private int id;
+    private float dystans;
     private Lotnisko miejsce_odlotu,miejsce_przylotu;
-    private int Czas;
+    private int czas;
 
-    public Trasa(float dystans,int id, Lotnisko miejsce_odlotu, Lotnisko miejsce_przylotu){
-        this.Dystans = dystans;
-        this.Id = id;
+    public Trasa(int id,float dystans,Lotnisko miejsce_odlotu, Lotnisko miejsce_przylotu,int czas){
+        this.id = id;
+        this.dystans = dystans;
         this.miejsce_przylotu = miejsce_przylotu;
         this.miejsce_odlotu = miejsce_odlotu;
+        this.czas = czas;
     }
+    public Trasa(Trasa trasa){
+        this.id=trasa.id;
+        this.dystans=trasa.dystans;
+        this.miejsce_odlotu=trasa.miejsce_odlotu;
+        this.miejsce_przylotu=trasa.miejsce_przylotu;
+        this.czas=trasa.czas;
 
+    }
     public int getId(){
-        return this.Id;
+        return this.id;
     }
 
     public float getDystans(){
-        return this.Dystans;
+        return this.dystans;
     }
 
-    public String toString(){
-        return "Miejsce odlotu: "+this.miejsce_odlotu.getNazwa()+"\nMiejsce przylotu: "+this.miejsce_przylotu.getNazwa()+"\nDystans: "+this.Dystans+"km"+"\nCzas: "+this.Czas;
+    public Lotnisko getMiejsce_odlotu() {
+        return miejsce_odlotu;
+    }
+
+    public Lotnisko getMiejsce_przylotu() {
+        return miejsce_przylotu;
+    }
+
+    public int getCzas() {
+        return czas;
+    }
+
+    @Override
+    public String toString() {
+        return "Trasa{" +
+                "id=" + id +
+                ", dystans=" + dystans +
+                ", miejsce_odlotu=" + miejsce_odlotu +
+                ", miejsce_przylotu=" + miejsce_przylotu +
+                ", czas=" + czas +
+                '}';
     }
 }

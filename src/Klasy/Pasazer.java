@@ -6,13 +6,19 @@ public class Pasazer extends Klient{
     private int Pesel;
 
 
-    public Pasazer(String imie,String nazwisko,int pesel,int nr_telefonu){
-        int r = new Random().nextInt();
+    public Pasazer(int Id,String imie,String nazwisko,int pesel,int nr_telefonu){
+        super(Id);
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.Pesel = pesel;
         this.nr_tel = nr_telefonu;
-        super.Id = r;
+    }
+    public Pasazer(Pasazer pasazer){
+        super(pasazer.Id);
+        this.imie=pasazer.imie;
+        this.nazwisko=pasazer.nazwisko;
+        this.Pesel=pasazer.Pesel;
+        this.nr_tel=pasazer.nr_tel;
     }
     public String getImie(){
         return this.imie;
