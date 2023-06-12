@@ -79,11 +79,18 @@ public class Sys_rezerwacji {
     }
 
     public void usunSamolot(String nazwaSamolotu){ //usuwanie samolotu z systemu
-        for(Samolot samolot: samoloty){
-            if(nazwaSamolotu==samolot.getNazwa()){
-                klienci.remove(samolot);
+        Iterator<Samolot> iterator = samoloty.iterator();
+        while(iterator.hasNext()){
+            Samolot s = iterator.next();
+            if(nazwaSamolotu.equals(s.getNazwa())){
+                iterator.remove();
             }
         }
+        /*for(Samolot samolot: samoloty){
+            if(nazwaSamolotu==samolot.getNazwa()){
+                samoloty.remove(samolot);
+            }
+        }*/
     }
     public void pokazSamoloty(){          //wyswietlenie samolotow
         for(Samolot samolot: samoloty){
@@ -154,7 +161,8 @@ public class Sys_rezerwacji {
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
             l4 = scanner.nextLine();
-            samolot = new Samolot(l1,l2,Integer.parseInt(l3),Float.parseFloat(l4));
+
+            samolot = new Samolot(l3,Integer.parseInt(l1),Float.parseFloat(l2));
             samoloty.add(samolot);
         }
         scanner.close();

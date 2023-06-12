@@ -1,6 +1,6 @@
 import Klasy.*;
 import java.util.Scanner;
-
+import java.util.Locale;
 public class Main {
    public static void main(String[] args) {
        Sys_rezerwacji systemRezerwacji = new Sys_rezerwacji();
@@ -68,24 +68,36 @@ public class Main {
                    }while (wybor2 !=0);
 
                    break;
-               case 2: break;
+               case 2:
+                   do{
+                       System.out.println("Dodaj trase - 1\nUsun trase - 2\nLista dostępnych tras - 3 \nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
+                   }while(wybor2!=0);
+                   break;
                case 3:
                    do {
                        System.out.println("Dodaj samolot - 1\nUsun samolot - 2\nLista samolotów - 3 \nWyjście - 0");
                        wybor2 = wybierz.nextInt();
                        if(wybor2==1){
-                            Scanner samolot = new Scanner(System.in);
-                            System.out.println("Podaj nazwe samolotu ");
-                            String nazwa_samolotu = samolot.nextLine();
-                            System.out.println("Podaj typ samolotu ");
-                            String typ = samolot.nextLine();
-                            System.out.println("Podaj ilość dostępnych miejsc w samolocie ");
-                            int ilosc_miejsc = samolot.nextInt();
-                            System.out.println("Podaj zasięg samolotu ");
-                            float zasieg = samolot.nextFloat();
-                            systemRezerwacji.dodajSamolot(new Samolot(nazwa_samolotu,typ,ilosc_miejsc,zasieg));
+                           Scanner s = new Scanner(System.in);
+                           s.useLocale(Locale.US);
+                           System.out.println("Podaj nazwe samolotu ");
+                           String nazwa_samolotu = s.nextLine();
+                           System.out.println("Podaj ilość dostępnych miejsc w samolocie ");
+                           int ilosc_miejsc = s.nextInt();
+                           System.out.println("Podaj zasięg samolotu ");
+                           float zasieg;
+                           zasieg = s.nextFloat();
+                           System.out.println("Wprowadzony float: "+zasieg);
+                           Samolot samolot = new Samolot(nazwa_samolotu,ilosc_miejsc,zasieg);
+                           systemRezerwacji.dodajSamolot(samolot);
                        }
                        if(wybor2==2){
+                           Scanner samolot = new Scanner(System.in);
+                           System.out.println("Podaj nazwę samolotu do usunięcia ");
+                           String nazwa_samolotu = samolot.nextLine();
+                           systemRezerwacji.usunSamolot(nazwa_samolotu);
+
 
                        }
                        if(wybor2==3){

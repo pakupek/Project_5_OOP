@@ -1,21 +1,20 @@
 package Klasy;
 
 public class Samolot {
-    private String typ,nazwa;
+    private String nazwa;
     private int liczba_miejsc;
     private float zasieg;
 
-    public Samolot(String nazwa,String typ, int miejsca,float zasieg){
+    public Samolot(String nazwa,int miejsca,float zasieg){
         this.nazwa = nazwa;
-        this.typ = typ;
         this.liczba_miejsc = miejsca;
         this.zasieg = zasieg;
     }
     public String wypisz(){
-        return nazwa + "\n" + typ + "\n"+ liczba_miejsc + "\n"+ zasieg;
+        return getLiczba_miejsc()+"\n"+ getZasieg()+"\n"+getNazwa()+"\n";
     }
     public String toString(){   //wyświetlenie pełnych danych o samolocie
-        return "Nazwa: " + this.nazwa + "\nTyp: " + this.typ + "\nZasięg: " + this.zasieg + "(km)" + "\nLiczba miejsc: " + this.liczba_miejsc;
+        return "Nazwa: "+getNazwa()+"\nZasięg: "+getZasieg()+"(km)"+"\nLiczba miejsc: "+getLiczba_miejsc();
     }
 
     public float getZasieg(){
@@ -28,9 +27,5 @@ public class Samolot {
 
     public String getNazwa(){
         return this.nazwa;
-    }
-
-    public String getTyp(){
-        return this.typ;
     }
 }

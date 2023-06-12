@@ -1,4 +1,4 @@
-Samolot B
-Pasażerski
-310
-1300.0
+300
+1300.6
+Boeing-777
+
