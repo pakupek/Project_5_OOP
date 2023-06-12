@@ -25,13 +25,12 @@ public class Main {
            int wybor1;
            wybor = scanner.next();
            wybor1 = Integer.parseInt(wybor);
-
+           Scanner wybierz = new Scanner(System.in);
+           int wybor2;
            switch(wybor1){
                case 1:
-                   Scanner wybierz = new Scanner(System.in);
-                   int wybor2;
                    do{
-                       System.out.println("Dodaj pasażera - 1\nUsun pasażera - 2\nDodaj firme - 3\nLista klientów - 4\nWyjście - 0");
+                       System.out.println("Dodaj pasażera - 1\nUsun klienta - 2\nDodaj firme - 3\nLista klientów - 4\nWyjście - 0");
                        wybor2 = wybierz.nextInt();
 
                        if(wybor2==1){
@@ -70,7 +69,30 @@ public class Main {
 
                    break;
                case 2: break;
-               case 3: break;
+               case 3:
+                   do {
+                       System.out.println("Dodaj samolot - 1\nUsun samolot - 2\nLista samolotów - 3 \nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
+                       if(wybor2==1){
+                            Scanner samolot = new Scanner(System.in);
+                            System.out.println("Podaj nazwe samolotu ");
+                            String nazwa_samolotu = samolot.nextLine();
+                            System.out.println("Podaj typ samolotu ");
+                            String typ = samolot.nextLine();
+                            System.out.println("Podaj ilość dostępnych miejsc w samolocie ");
+                            int ilosc_miejsc = samolot.nextInt();
+                            System.out.println("Podaj zasięg samolotu ");
+                            float zasieg = samolot.nextFloat();
+                            systemRezerwacji.dodajSamolot(new Samolot(nazwa_samolotu,typ,ilosc_miejsc,zasieg));
+                       }
+                       if(wybor2==2){
+
+                       }
+                       if(wybor2==3){
+                           System.out.println(systemRezerwacji.getListaSamolotow());
+                       }
+                   }while(wybor2!=0);
+                   break;
                case 4: break;
                case 5: break;
                case 6: kontynuacja=false; break;
