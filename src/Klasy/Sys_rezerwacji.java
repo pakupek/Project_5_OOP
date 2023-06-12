@@ -215,24 +215,27 @@ public class Sys_rezerwacji {
 
         Firma firma;
         Pasazer pasazer;
-        String l1,l2,l3;
+        String l1,l2,l3,l4;
         int indeks;
         while(scanner.hasNext())
         {
             l1 = scanner.nextLine();
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
+            l4 = scanner.nextLine();
 
-            if(l3.length() <= 10)
+            if(l3.length() == 10)
             {
                 firma = new Firma(Integer.parseInt(l1),l2,l3);
                 klienci.add((firma));
             }
             else
             {
-                indeks = l2.indexOf(" ");
-                pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3));
-                klienci.add(pasazer);
+                if(!(l1.isEmpty() && l2.isEmpty() && l3.isEmpty())){
+                    indeks = l2.indexOf(" ");
+                    pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3));
+                    klienci.add(pasazer);
+                }
             }
         }
         scanner.close();

@@ -26,25 +26,17 @@ public class Pasazer extends Klient{
         return this.nazwisko;
     }
 
-    public int getNr_tel(){
-        return this.nr_tel;
-    }
-
-
-
     public String getNazwa()
     {
         return imie + " " + nazwisko;
     }
 
     public String getNumer() {
-        String str = "";
-        str += nr_tel;
-        return str;
+        return Integer.toString(nr_tel);
     }
 
     public String toString(){
-        return "Imie: " + this.imie + "\nNazwisko: " + this.nazwisko + "\nNr telefonu: " + this.nr_tel + "\nId: " + super.Id;
+        return "Imie: " + getImie() + "\nNazwisko: " + getNazwisko() + "\nNr telefonu: " + getNumer() + "\nId: " + getId();
     }
 
 }

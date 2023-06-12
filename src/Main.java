@@ -106,8 +106,7 @@ public class Main {
                             String krs = firma.nextLine();
                             System.out.println("Podaj ID");
                             int id = firma.nextInt();
-                            Firma f = new Firma(id,nazwa_firmy,krs);
-                            systemRezerwacji.dodajKlienta(f);
+                            systemRezerwacji.dodajKlienta(new Firma(id,nazwa_firmy,krs));
                        }
                        if(wybor2==4){
 

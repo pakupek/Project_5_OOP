@@ -22,7 +22,7 @@ public class Firma extends Klient{
         return KRS;
     }
     public String toString(){
-        return "\nNazwa: " + getNazwa() + "\nKRS: " + getNumer();
+        return "\nNazwa: " + getNazwa() + "\nKRS: " + getNumer()+"\nId: "+getId();
     }
 
 }
