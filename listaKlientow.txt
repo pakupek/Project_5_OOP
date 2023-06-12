@@ -1,7 +1,3 @@
-32
-ConanMc
-3215543467
-
 43
 Tomasz Kleszcz
 321789677
@@ -13,8 +9,4 @@ Konony
 465
 Adam Klimowicz
 213445889
-
-44
-John Wick
-566788921
 

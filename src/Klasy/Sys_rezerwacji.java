@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -58,9 +59,11 @@ public class Sys_rezerwacji {
     }   //dodaje klienta
 
     public void usunKlienta(int idKlienta){   //usuwanie klienta z systemu
-        for(Klient klient: klienci){
-            if(idKlienta==klient.getId()){
-                klienci.remove(klient);
+        Iterator<Klient> iterator = klienci.iterator();
+        while(iterator.hasNext()){
+            Klient klient = iterator.next();
+            if(idKlienta == klient.getId()){
+                iterator.remove();
             }
         }
     }
