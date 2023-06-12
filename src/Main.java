@@ -35,13 +35,13 @@ public class Main {
 
                        if(wybor2==1){
                            Scanner klient = new Scanner(System.in);
-                           System.out.println("Wprowadź imię pasażera:");
+                           System.out.println("Wprowadź imię pasażera ");
                            String imie = klient.nextLine();
-                           System.out.println("Wprowadź nazwisko pasażera:");
+                           System.out.println("Wprowadź nazwisko pasażera ");
                            String nazwisko = klient.nextLine();
-                           System.out.println("Numer id: ");
+                           System.out.println("Numer id ");
                            int id = klient.nextInt();
-                           System.out.println("Numer kontatkowy:");
+                           System.out.println("Numer kontatkowy (9 cyfr) ");
                            int nr_telefonu = klient.nextInt();
                            Pasazer p = new Pasazer(id,imie,nazwisko,nr_telefonu);
                            systemRezerwacji.dodajKlienta(p);
@@ -56,9 +56,9 @@ public class Main {
                             Scanner firma = new Scanner(System.in);
                             System.out.println("Podaj nazwę firmy ");
                             String nazwa_firmy = firma.nextLine();
-                            System.out.println("Podaj KRS ");
+                            System.out.println("Podaj KRS (10 cyfr) ");
                             String krs = firma.nextLine();
-                            System.out.println("Podaj ID");
+                            System.out.println("Podaj ID ");
                             int id = firma.nextInt();
                             systemRezerwacji.dodajKlienta(new Firma(id,nazwa_firmy,krs));
                        }

@@ -1,5 +1,5 @@
 package Klasy;
-import java.util.*;
+
 public class Firma extends Klient{
     private String Nazwa,KRS;
 
@@ -22,7 +22,7 @@ public class Firma extends Klient{
         return KRS;
     }
     public String toString(){
-        return "\nNazwa: " + getNazwa() + "\nKRS: " + getNumer()+"\nId: "+getId();
+        return "\nNazwa: "+getNazwa()+"\nKRS: "+getNumer()+"\nId: "+getId();
     }
 
 }

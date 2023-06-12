@@ -234,19 +234,20 @@ public class Sys_rezerwacji {
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
             l4 = scanner.nextLine();
-
+            System.out.println("Linia l1:\t"+l1+"\nLinia l2:\t"+l2+"\nLinia l3:\t"+l3+"\nLinia l4:\t"+l4);
             if(l3.length() == 10)
             {
                 firma = new Firma(Integer.parseInt(l1),l2,l3);
                 klienci.add((firma));
             }
-            else
+            else if(l3.length()==9)
             {
-                if(!(l1.isEmpty() && l2.isEmpty() && l3.isEmpty())){
-                    indeks = l2.indexOf(" ");
-                    pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3));
-                    klienci.add(pasazer);
-                }
+                indeks = l2.indexOf(" ");
+                pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3));
+                klienci.add(pasazer);
+            }
+            else{
+                System.out.println("Błędnie wprowadzone dane!");
             }
         }
         scanner.close();
