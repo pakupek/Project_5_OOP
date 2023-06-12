@@ -36,6 +36,15 @@ public class Pasazer extends Klient{
         return this.Pesel;
     }
 
+    public String getNazwa()
+    {
+        return imie + " " + nazwisko;
+    }
+
+    public String getNumer() {
+        return Pesel + "\n" + nr_tel;
+    }
+
     public String toString(){
         return "Imie: " + this.imie + "\nNazwisko: " + this.nazwisko + "\nNr telefonu: " + this.nr_tel + "\nId: " + super.Id;
     }

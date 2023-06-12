@@ -1,11 +1,14 @@
 import Klasy.*;
 
+import java.io.FileNotFoundException;
+import java.security.KeyStore;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Sys_rezerwacji sys = new Sys_rezerwacji();
 
         //tworzenie nowych pasażerów
@@ -49,4 +52,48 @@ public class Main {
         System.out.println("Lista samolotów:\n"+sys.getSamoloty()); //lista amolotów
         sys.usunRezerwacje(p1,lt1); //Usuwanie rezerwacji klienta dla danego lotu
     }
+    */
+   public static void main(String[] args) {
+       Sys_rezerwacji systemRezerwacji = new Sys_rezerwacji();
+       try {
+           systemRezerwacji.wczytaj();
+       } catch (Throwable t) {
+           t.printStackTrace();
+       }
+       System.out.println("----------MENU----------");
+       System.out.println("1.Klienci");
+       System.out.println("2.Trasy");
+       System.out.println("3.Samoloty");
+       System.out.println("4.Lotniska");
+       System.out.println("5.Rezerwacja");
+       System.out.println("6.Exit");
+       Scanner scanner = new Scanner(System.in);
+       String wybor;
+       int wybor1;
+       wybor = scanner.next();
+       wybor1 = Integer.parseInt(wybor);
+       while(true){
+           if(wybor1==1){
+
+           } else if (wybor1==2) {
+
+           } else if (wybor1==3) {
+
+           } else if (wybor1==4) {
+
+           } else if (wybor1==5) {
+
+           } else if (wybor1==6) {
+               break;
+           }
+       }
+
+       try{
+           systemRezerwacji.zapisz();
+       } catch (Throwable t) {
+           t.printStackTrace();
+       }
+   }
+
+
 }

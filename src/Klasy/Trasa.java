@@ -41,6 +41,11 @@ public class Trasa {
         return czas;
     }
 
+    public String wypisz()
+    {
+        return id + "\n" + dystans + "\n" + miejsce_przylotu.getNazwa()
+                + "\n" + miejsce_odlotu.getNazwa() + "\n" + czas + "\n";
+    }
     @Override
     public String toString() {
         return "Trasa{" +

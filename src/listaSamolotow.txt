@@ -1,0 +1,80 @@
+240
+2000.0
+Airbus A300-A
+
+240
+2000.0
+Airbus A300-B
+
+600
+3000.0
+Airbus A380-A
+
+600
+3000.0
+Airbus A380-B
+
+600
+3000.0
+Airbus A380-C
+
+400
+2500.0
+Boeing 777
+
+400
+2500.0
+Boeing 778
+
+150
+1900.0
+Concorde-A
+
+150
+1900.0
+Concorde-B
+
+150
+1900.0
+Concorde2-C
+
+180
+1500.0
+Boeing 707
+
+180
+1500.0
+Boeing 708
+
+480
+2000.0
+Boeing 747
+
+480
+2000.0
+Boeing 748
+
+170
+1400.0
+Airbus A320
+
+175
+1000.0
+Boeing 737
+
+175
+1000.0
+Boeing 738
+
+120
+1300.0
+McDonnell Douglas DC-9
+
+120
+1300.0
+McDonnell Douglas DC-10
+
+120
+1300.0
+McDonnell Douglas DC-11
+

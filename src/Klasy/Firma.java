@@ -16,14 +16,13 @@ public class Firma extends Klient{
     }
 
     public String getNazwa(){
-        return this.Nazwa;
+        return Nazwa;
     }
-
+    public String getNumer(){
+        return KRS;
+    }
     public String toString(){
-        return "\nNazwa: " + getNazwa() + "\nKRS: " + getKRS();
+        return "\nNazwa: " + getNazwa() + "\nKRS: " + getNumer();
     }
 
-    public String getKRS(){
-        return this.KRS;
-    }
 }

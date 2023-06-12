@@ -11,4 +11,10 @@ abstract class Klient {
     public int getId(){
         return this.Id;
     }
+    public abstract String getNazwa();
+    public abstract String getNumer();
+    public String wypisz()
+    {
+        return Id + "\n" + getNazwa() + "\n" + getNumer() + "\n";
+    }
 }

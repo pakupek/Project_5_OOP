@@ -11,7 +11,9 @@ public class Samolot {
         this.liczba_miejsc = miejsca;
         this.zasieg = zasieg;
     }
-
+    public String wypisz(){
+        return nazwa + "\n" + typ + "\n"+ liczba_miejsc + "\n"+ zasieg;
+    }
     public String toString(){   //wyświetlenie pełnych danych o samolocie
         return "Nazwa: " + this.nazwa + "\nTyp: " + this.typ + "\nZasięg: " + this.zasieg + "(km)" + "\nLiczba miejsc: " + this.liczba_miejsc;
     }

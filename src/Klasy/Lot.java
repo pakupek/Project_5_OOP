@@ -56,4 +56,21 @@ public class Lot {
         Wolne_miejsca += r.getLiczba_miejsc();
     }
 
+    public String wypisz()
+    {
+        return Id + "\n" + samolot.getNazwa() + "\n" + trasa.getId() + "\n" + Czas_odlotu + "\n";
+    }
+
+    @Override
+    public String toString() {
+        return "Lot{" +
+                "Id=" + Id +
+                ", samolot=" + samolot +
+                ", rezerwacje=" + rezerwacje +
+                ", Wolne_miejsca=" + Wolne_miejsca +
+                ", trasa=" + trasa +
+                ", Czas_odlotu=" + Czas_odlotu +
+                ", Czas_przylotu=" + Czas_przylotu +
+                '}';
+    }
 }
