@@ -1,10 +1,4 @@
 import Klasy.*;
-
-import java.io.FileNotFoundException;
-import java.security.KeyStore;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -99,10 +93,21 @@ public class Main {
                            systemRezerwacji.dodajKlienta(p);
                        }
                        if(wybor2==2){
-
+                           Scanner klient = new Scanner(System.in);
+                           System.out.println("Podaj ID klienta do usuniecia: ");
+                           int id = klient.nextInt();
+                           systemRezerwacji.usunKlienta(id);
                        }
                        if(wybor2==3){
-
+                            Scanner firma = new Scanner(System.in);
+                            System.out.println("Podaj nazwę firmy ");
+                            String nazwa_firmy = firma.nextLine();
+                            System.out.println("Podaj KRS ");
+                            String krs = firma.nextLine();
+                            System.out.println("Podaj ID");
+                            int id = firma.nextInt();
+                            Firma f = new Firma(id,nazwa_firmy,krs);
+                            systemRezerwacji.dodajKlienta(f);
                        }
                        if(wybor2==4){
 

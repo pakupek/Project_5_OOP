@@ -215,7 +215,7 @@ public class Sys_rezerwacji {
 
         Firma firma;
         Pasazer pasazer;
-        String l1,l2,l3,l4;
+        String l1,l2,l3;
         int indeks;
         while(scanner.hasNext())
         {
