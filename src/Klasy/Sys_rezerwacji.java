@@ -223,7 +223,7 @@ public class Sys_rezerwacji {
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
 
-            if(l3.length() == 10)
+            if(l3.length() <= 10)
             {
                 firma = new Firma(Integer.parseInt(l1),l2,l3);
                 klienci.add((firma));

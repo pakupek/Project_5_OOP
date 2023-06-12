@@ -38,7 +38,9 @@ public class Pasazer extends Klient{
     }
 
     public String getNumer() {
-        return "\n" + nr_tel;
+        String str = "";
+        str += nr_tel;
+        return str;
     }
 
     public String toString(){
