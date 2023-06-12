@@ -60,31 +60,67 @@ public class Main {
        } catch (Throwable t) {
            t.printStackTrace();
        }
-       System.out.println("----------MENU----------");
-       System.out.println("1.Klienci");
-       System.out.println("2.Trasy");
-       System.out.println("3.Samoloty");
-       System.out.println("4.Lotniska");
-       System.out.println("5.Rezerwacja");
-       System.out.println("6.Exit");
-       Scanner scanner = new Scanner(System.in);
-       String wybor;
-       int wybor1;
-       wybor = scanner.next();
-       wybor1 = Integer.parseInt(wybor);
-       while(true){
-           if(wybor1==1){
 
-           } else if (wybor1==2) {
+       boolean kontynuacja = true;
+       while(kontynuacja){
+           System.out.println("----------MENU----------");
+           System.out.println("1.Klienci");
+           System.out.println("2.Trasy");
+           System.out.println("3.Samoloty");
+           System.out.println("4.Lotniska");
+           System.out.println("5.Rezerwacja");
+           System.out.println("6.Exit");
 
-           } else if (wybor1==3) {
+           Scanner scanner = new Scanner(System.in);
+           String wybor;
+           int wybor1;
+           wybor = scanner.next();
+           wybor1 = Integer.parseInt(wybor);
 
-           } else if (wybor1==4) {
+           switch(wybor1){
+               case 1:
+                   Scanner wybierz = new Scanner(System.in);
+                   int wybor2;
+                   do{
+                       System.out.println("Dodaj pasażera - 1\nUsun pasażera - 2\nDodaj firme - 3\nUsun firme - 4\nLista klientów - 5\nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
 
-           } else if (wybor1==5) {
+                       if(wybor2==1){
+                           Scanner klient = new Scanner(System.in);
+                           System.out.println("Wprowadź imię pasażera:");
+                           String imie = klient.nextLine();
+                           System.out.println("Wprowadź nazwisko pasażera:");
+                           String nazwisko = klient.nextLine();
+                           System.out.println("Numer id: ");
+                           int id = klient.nextInt();
+                           System.out.println("Numer kontatkowy:");
+                           int nr_telefonu = klient.nextInt();
+                           Pasazer p = new Pasazer(id,imie,nazwisko,nr_telefonu);
+                           systemRezerwacji.dodajKlienta(p);
+                       }
+                       if(wybor2==2){
 
-           } else if (wybor1==6) {
-               break;
+                       }
+                       if(wybor2==3){
+
+                       }
+                       if(wybor2==4){
+
+                       }
+                       if(wybor2==5){
+                           System.out.println(systemRezerwacji.getListaKlientow());
+                       }
+
+
+                   }while (wybor2 !=0);
+
+                   break;
+               case 2: break;
+               case 3: break;
+               case 4: break;
+               case 5: break;
+               case 6: kontynuacja=false; break;
+               default: System.out.println("Nieprawidłowy wybór!\n");
            }
        }
 

@@ -3,21 +3,19 @@ import java.util.*;
 public class Pasazer extends Klient{
     private String imie,nazwisko;
     private int nr_tel;
-    private int Pesel;
 
 
-    public Pasazer(int Id,String imie,String nazwisko,int pesel,int nr_telefonu){
+
+    public Pasazer(int Id,String imie,String nazwisko,int nr_telefonu){
         super(Id);
         this.imie = imie;
         this.nazwisko = nazwisko;
-        this.Pesel = pesel;
         this.nr_tel = nr_telefonu;
     }
     public Pasazer(Pasazer pasazer){
         super(pasazer.Id);
         this.imie=pasazer.imie;
         this.nazwisko=pasazer.nazwisko;
-        this.Pesel=pasazer.Pesel;
         this.nr_tel=pasazer.nr_tel;
     }
     public String getImie(){
@@ -32,9 +30,7 @@ public class Pasazer extends Klient{
         return this.nr_tel;
     }
 
-    public int getPesel(){
-        return this.Pesel;
-    }
+
 
     public String getNazwa()
     {
@@ -42,7 +38,7 @@ public class Pasazer extends Klient{
     }
 
     public String getNumer() {
-        return Pesel + "\n" + nr_tel;
+        return "\n" + nr_tel;
     }
 
     public String toString(){

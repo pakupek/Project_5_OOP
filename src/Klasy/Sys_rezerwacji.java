@@ -65,7 +65,7 @@ public class Sys_rezerwacji {
         }
     }
 
-    public void pokazKlienta(){             //wyswietlenie samolotow
+    public void pokazKlienta(){
         for(Klient klient: klienci){
             System.out.println(klient);
         }
@@ -222,7 +222,6 @@ public class Sys_rezerwacji {
             l1 = scanner.nextLine();
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
-            l4 = scanner.nextLine();
 
             if(l3.length() == 10)
             {
@@ -232,7 +231,7 @@ public class Sys_rezerwacji {
             else
             {
                 indeks = l2.indexOf(" ");
-                pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3),Integer.parseInt(l4));
+                pasazer = new Pasazer(Integer.parseInt(l1),l2.substring(0, indeks),l2.substring(indeks+1, l2.length()),Integer.parseInt(l3));
                 klienci.add(pasazer);
             }
         }
