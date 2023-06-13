@@ -96,9 +96,11 @@ public class Sys_rezerwacji {
     public void dodajLotnisko(Lotnisko l){ lotniska.add(l); }   //dodawanie lotniska do systemu
 
     public void usunLotnisko(String nazwaLotniska){     //usuwanie lotniska z systemu
-        for(Lotnisko lotnisko: lotniska){
-            if(nazwaLotniska==lotnisko.getNazwa()){
-                klienci.remove(lotnisko);
+        Iterator<Lotnisko> iterator = lotniska.iterator();
+        while(iterator.hasNext()){
+            Lotnisko lotnisko = iterator.next();
+            if(lotnisko.getNazwa().equals(nazwaLotniska)){
+                iterator.remove();
             }
         }
     }

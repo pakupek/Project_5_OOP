@@ -141,7 +141,32 @@ public class Main {
                        }
                    }while(wybor2!=0);
                    break;
-               case 4: break;
+               case 4:
+                   do{
+                       System.out.println("Dodaj lotnisko - 1\nUsun lotnisko - 2\nLista dostępnych lotnisk - 3 \nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
+                       if(wybor2==1){
+                           Scanner lotnisko = new Scanner(System.in);
+                           System.out.println("Podaj nazwę lotniska");
+                           String nazwa = lotnisko.nextLine();
+                           System.out.println("Podaj miejscowość w której znajduje się lotnisko");
+                           String miejsce = lotnisko.nextLine();
+                           System.out.println("Podaj kraj w którym znajduje się lotnisko");
+                           String kraj = lotnisko.nextLine();
+                           Lotnisko l = new Lotnisko(nazwa,miejsce,kraj);
+                           systemRezerwacji.dodajLotnisko(l);
+                       }
+                       if(wybor2==2){
+                            Scanner lotnisko = new Scanner(System.in);
+                            System.out.println("Podaj nazwę lotniska do usunięcia");
+                            String nazwa = lotnisko.nextLine();
+                            systemRezerwacji.usunLotnisko(nazwa);
+                       }
+                       if(wybor2==3){
+                            systemRezerwacji.pokazLotniska();
+                       }
+                   }while(wybor2!=0);
+                   break;
                case 5: break;
                case 6: kontynuacja=false; break;
                default: System.out.println("Nieprawidłowy wybór!\n");

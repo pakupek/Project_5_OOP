@@ -1,7 +1,3 @@
-Lotnisko początkowe
-Warszawa
-Polska
-
 Lotnisko końcowe
 Berlin
 Niemcy
@@ -13,4 +9,8 @@ Polska
 Lotnisko Praga
 Praga
 Czechy
+
+Lotnisko Londyn
+Londyn
+Wielka Brytania
 
