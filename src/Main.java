@@ -213,6 +213,10 @@ public class Main {
                        wybor2 = wybierz.nextInt();
                        if(wybor2==1){
                            Scanner pasazer = new Scanner(System.in);
+                           System.out.println("Podaj miejsce początku lotu: ");
+                           String pocz = pasazer.nextLine();
+                           System.out.println("Podaj docelowe miejsce lotu");
+                           String kon = pasazer.nextLine();
                            System.out.println("Podaj dane pasażera:\nWprowadź imie");
                            String imie = pasazer.nextLine();
                            System.out.println("Podaj nazwisko");
@@ -225,10 +229,28 @@ public class Main {
                            System.out.println("Podaj ilość miejsc");
                            int miejsca = pasazer.nextInt();
                            Rezerwacja r = new Rezerwacja(p,miejsca);
-
+                           if(!systemRezerwacji.getListaLotow().isEmpty()){
+                               for(Lot lot : systemRezerwacji.getListaLotow()){
+                                   if(lot.getTrasa().getMiejsce_odlotu().getMiejscowosc().equals(pocz) && lot.getTrasa().getMiejsce_przylotu().getMiejscowosc().equals(kon)){
+                                       lot.dodajRezerwacje(r);
+                                       break;
+                                   }
+                               }
+                           }
                        }
                        if(wybor2==2){
-
+                            Scanner pasazer = new Scanner(System.in);
+                            System.out.println("Podaj imie i nazwisko pasażera aby usunąć dla niego bilety");
+                            String dane = pasazer.nextLine();
+                            for(Lot lot : systemRezerwacji.getListaLotow()){
+                                for(Rezerwacja rezerwacja : lot.getRezerwacje()){
+                                    Klient k = rezerwacja.getKlient();
+                                    if(k.getNazwa().equals(dane)){
+                                        lot.usunRezerwacje(rezerwacja);
+                                        break;
+                                    }
+                                }
+                            }
                        }
                        if(wybor2==3){
 

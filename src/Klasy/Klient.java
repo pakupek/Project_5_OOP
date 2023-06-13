@@ -2,7 +2,7 @@ package Klasy;
 
 import java.util.Random;
 
-abstract class Klient {
+public abstract class Klient {
     protected int Id;
 
     public Klient(int Id){
