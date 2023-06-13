@@ -86,11 +86,6 @@ public class Sys_rezerwacji {
                 iterator.remove();
             }
         }
-        /*for(Samolot samolot: samoloty){
-            if(nazwaSamolotu==samolot.getNazwa()){
-                samoloty.remove(samolot);
-            }
-        }*/
     }
     public void pokazSamoloty(){          //wyswietlenie samolotow
         for(Samolot samolot: samoloty){
@@ -116,13 +111,15 @@ public class Sys_rezerwacji {
 
     public void dodajTrase(Trasa t){ trasy.add(t); }    //dodawanie rasy do systemu
 
-    public void usunTrase(int idTrasy){             //usun trase
-        for(Trasa trasa: trasy){
-            if(idTrasy==trasa.getId()){
-                klienci.remove(trasa);
+    public void usunTrase(int idTrasy){     //usuwanie trasy z systemu
+        Iterator<Trasa> iterator = trasy.iterator();
+        while(iterator.hasNext()){
+            Trasa trasa = iterator.next();
+            if(trasa.getId()==idTrasy){
+                iterator.remove();
             }
         }
-    }  //usuwanie trasy z systemu
+    }
 
     public void pokazTrasy(){                    //wyswietl trase
         for(Trasa trasa: trasy){
@@ -210,10 +207,17 @@ public class Sys_rezerwacji {
         File plikLotnisko = new File("listaLotnisk.txt");
         Scanner scanner = new Scanner(plikLotnisko);
 
+        String l1,l2,l3,l4;
         Lotnisko lotnisko;
+
         while(scanner.hasNext())
         {
-            lotnisko = new Lotnisko(scanner.nextLine(),scanner.nextLine(),scanner.nextLine());
+            l1 = scanner.nextLine();
+            l2 = scanner.nextLine();
+            l3 = scanner.nextLine();
+            l4 = scanner.nextLine();
+
+            lotnisko = new Lotnisko(l1,l2,l3);
             lotniska.add(lotnisko);
         }
         scanner.close();
@@ -234,7 +238,7 @@ public class Sys_rezerwacji {
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
             l4 = scanner.nextLine();
-            System.out.println("Linia l1:\t"+l1+"\nLinia l2:\t"+l2+"\nLinia l3:\t"+l3+"\nLinia l4:\t"+l4);
+
             if(l3.length() == 10)
             {
                 firma = new Firma(Integer.parseInt(l1),l2,l3);
@@ -258,7 +262,7 @@ public class Sys_rezerwacji {
         Scanner scanner = new Scanner(plikTrasa);
 
         Trasa trasa;
-        String l1,l2,l3,l4,l5;
+        String l1,l2,l3,l4,l5,l6;
         while(scanner.hasNext())
         {
             l1 = scanner.nextLine();
@@ -266,6 +270,7 @@ public class Sys_rezerwacji {
             l3 = scanner.nextLine();
             l4 = scanner.nextLine();
             l5 = scanner.nextLine();
+            l6 = scanner.nextLine();
 
             Lotnisko miejsceOdlotu = null, miejscePrzylotu = null;
             for(Lotnisko lotnisko : lotniska)

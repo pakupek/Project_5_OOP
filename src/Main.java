@@ -63,7 +63,7 @@ public class Main {
                             systemRezerwacji.dodajKlienta(new Firma(id,nazwa_firmy,krs));
                        }
                        if(wybor2==4){
-                           System.out.println(systemRezerwacji.getListaKlientow());
+                           systemRezerwacji.pokazKlienta();
                        }
                    }while (wybor2 !=0);
 
@@ -72,6 +72,43 @@ public class Main {
                    do{
                        System.out.println("Dodaj trase - 1\nUsun trase - 2\nLista dostępnych tras - 3 \nWyjście - 0");
                        wybor2 = wybierz.nextInt();
+                       if(wybor2==1){
+                           Scanner trasa = new Scanner(System.in);
+                           trasa.useLocale(Locale.US);
+                           System.out.println("Wprowadź dane lotniska poczatkowego\nNazwa Lotniska");
+                           String nazwa_lotniska = trasa.nextLine();
+                           System.out.println("Miejscowość w której znajduje się lotnisko ");
+                           String miejscowosc = trasa.nextLine();
+                           System.out.println("Podaj kraj w którym znajduje się lotnisko");
+                           String kraj = trasa.nextLine();
+                           Lotnisko lp = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
+                           System.out.println("Wprowadź dane lotniska końcowego\nNazwa Lotniska");
+                           nazwa_lotniska = trasa.nextLine();
+                           System.out.println("Miejscowość w której znajduje się lotnisko ");
+                           miejscowosc = trasa.nextLine();
+                           System.out.println("Podaj kraj w którym znajduje się lotnisko");
+                           kraj = trasa.nextLine();
+                           Lotnisko lk = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
+                           System.out.println("Podaj odległość między lotniskami");
+                           float odleglosc = trasa.nextFloat();
+                           System.out.println("Podaj czas trwania lotu (w minutach)");
+                           int czas = trasa.nextInt();
+                           System.out.println("Podaj id trasy");
+                           int id = trasa.nextInt();
+                           Trasa t = new Trasa(id,odleglosc,lp,lk,czas);
+                           systemRezerwacji.dodajLotnisko(lp);
+                           systemRezerwacji.dodajLotnisko(lk);
+                           systemRezerwacji.dodajTrase(t);
+                       }
+                       if(wybor2==2){
+                            Scanner trasa = new Scanner(System.in);
+                            System.out.println("Podaj id trasy do usunięcia");
+                            int id = trasa.nextInt();
+                            systemRezerwacji.usunTrase(id);
+                       }
+                       if(wybor2==3){
+                           systemRezerwacji.pokazTrasy();
+                       }
                    }while(wybor2!=0);
                    break;
                case 3:
@@ -88,7 +125,6 @@ public class Main {
                            System.out.println("Podaj zasięg samolotu ");
                            float zasieg;
                            zasieg = s.nextFloat();
-                           System.out.println("Wprowadzony float: "+zasieg);
                            Samolot samolot = new Samolot(nazwa_samolotu,ilosc_miejsc,zasieg);
                            systemRezerwacji.dodajSamolot(samolot);
                        }
@@ -101,7 +137,7 @@ public class Main {
 
                        }
                        if(wybor2==3){
-                           System.out.println(systemRezerwacji.getListaSamolotow());
+                           systemRezerwacji.pokazSamoloty();
                        }
                    }while(wybor2!=0);
                    break;

@@ -1,0 +1,16 @@
+Lotnisko początkowe
+Warszawa
+Polska
+
+Lotnisko końcowe
+Berlin
+Niemcy
+
+Lotnisko Kraków
+Kraków
+Polska
+
+Lotnisko Praga
+Praga
+Czechy
+
