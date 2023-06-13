@@ -10,12 +10,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Sys_rezerwacji {
-    private ArrayList<Klient> klienci = new ArrayList<>();
-    private ArrayList<Samolot> samoloty = new ArrayList<>();
-    private ArrayList<Trasa> trasy = new ArrayList<>();
-    private ArrayList<Lotnisko> lotniska = new ArrayList<>();
-    private ArrayList<Lot> loty = new ArrayList<>();
-    private ArrayList<Rezerwacja> rezerwacje = new ArrayList<>();
+    private final ArrayList<Klient> klienci = new ArrayList<>();
+    private final ArrayList<Samolot> samoloty = new ArrayList<>();
+    private final ArrayList<Trasa> trasy = new ArrayList<>();
+    private final ArrayList<Lotnisko> lotniska = new ArrayList<>();
+    private final ArrayList<Lot> loty = new ArrayList<>();
+
+
 
     public ArrayList<Samolot> getListaSamolotow() {return this.samoloty;}
 
@@ -39,18 +40,17 @@ public class Sys_rezerwacji {
         return this.lotniska;
     }
 
+
     public String listaRezerwacji(){
-        for(Lot lot : loty){
-            rezerwacje.addAll(lot.getRezerwacje());
-        }
         String str = "";
         for(Lot lot : loty){
             str += "Miejsce odlotu: "+lot.getTrasa().getMiejsce_odlotu().getNazwa()+"("+lot.getTrasa().getMiejsce_odlotu().getKraj()+")"+
                     "\tMiejsce prylotu: "+lot.getTrasa().getMiejsce_przylotu().getNazwa()+"("+lot.getTrasa().getMiejsce_przylotu().getKraj()+")"+
-                    "\n"+lot.getRezerwacje();
+                    "\n"+lot.getRezerwacje()+"\n";
         }
         return str;
     }
+
 
     public void dodajLot(Lot lt){ loty.add(lt); }    //dodaje lot
 
@@ -129,24 +129,6 @@ public class Sys_rezerwacji {
         }
     }
 
-    public void utworzRezerwacje(Klient k,int ilosc, Lot lt){   //tworzenie rezerwacji dla klienta
-        Rezerwacja r = new Rezerwacja(k,ilosc);
-        rezerwacje.add(r);
-        lt.dodajRezerwacje(r);
-    }
-
-    public void usunRezerwacje(Klient k,Lot lt){    //usuwanie rezerwacji dla klienta
-        for(Rezerwacja rezerwacja : rezerwacje){
-            if(rezerwacja.getKlient() == k){
-                rezerwacje.remove(rezerwacja);
-                loty.remove(rezerwacja);
-                for(Lot lot : loty){
-                    lot.usunRezerwacje(rezerwacja);
-                }
-            }
-        }
-    }
-
     void wczytajSamoloty() throws FileNotFoundException                //wczytywanie samolotow
     {
         File plikSamoloty = new File("listaSamolotow.txt");
@@ -192,7 +174,7 @@ public class Sys_rezerwacji {
             Trasa naszaTrasa = null;
             for(Trasa trasa : trasy)
             {
-                if(trasa.getId() == Integer.parseInt(l3))
+                if(trasa.getId() == Integer.parseInt(l1))
                 {
                     naszaTrasa = trasa;
                 }
@@ -200,7 +182,7 @@ public class Sys_rezerwacji {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
-            lot = new Lot(Integer.parseInt(l1),naszSamolot,naszaTrasa, LocalDateTime.parse(l4, formatter));
+            lot = new Lot(Integer.parseInt(l1),naszSamolot,naszaTrasa, LocalDateTime.parse(l3, formatter));
             loty.add(lot);
         }
         scanner.close();

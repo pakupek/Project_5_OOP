@@ -7,12 +7,12 @@ import java.util.*;
 
 
 public class Lot {
-    private int Id;
-    private Samolot samolot;
-    private List<Rezerwacja> rezerwacje = new ArrayList<>();
+    private final int Id;
+    private final Samolot samolot;
+    private final ArrayList<Rezerwacja> rezerwacje = new ArrayList<>();
     private int Wolne_miejsca;
-    private Trasa trasa;
-    private LocalDateTime Czas_odlotu,Czas_przylotu;
+    private final Trasa trasa;
+    private final LocalDateTime Czas_odlotu,Czas_przylotu;
 
     public Lot(int id,Samolot s, Trasa t, LocalDateTime czas_odlotu){
         this.Id = id;
@@ -62,7 +62,7 @@ public class Lot {
 
     public String wypisz()
     {
-        return getId() + "\n" + samolot.getNazwa() + "\n" + trasa.getId() + "\n" + Czas_odlotu + "\n";
+        return getId() + "\n" + samolot.getNazwa() +"\n" + getCzas_odlotu() + "\n"+getWolne_miejsca()+"\n";
     }
 
     @Override

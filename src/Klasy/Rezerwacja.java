@@ -9,6 +9,11 @@ public class Rezerwacja {
         this.Liczba_miejsc = ilosc_miejsc;
 
     }
+
+    public Rezerwacja(Rezerwacja r){
+        this.klient = r.getKlient();
+        this.Liczba_miejsc = r.getLiczba_miejsc();
+    }
     public Klient getKlient(){
         return this.klient;
     }
