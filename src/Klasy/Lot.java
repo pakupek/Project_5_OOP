@@ -67,14 +67,14 @@ public class Lot {
 
     @Override
     public String toString() {
-        return "Lot{" +
-                "Id=" + Id +
-                ", samolot=" + samolot +
-                ", rezerwacje=" + rezerwacje +
-                ", Wolne_miejsca=" + Wolne_miejsca +
-                ", trasa=" + trasa +
-                ", Czas_odlotu=" + Czas_odlotu +
-                ", Czas_przylotu=" + Czas_przylotu +
+        return "Lot{\n" +
+                "Id=" + getId() +
+                "\nsamolot=" + getSamolot() +
+                "\nrezerwacje=" + getRezerwacje() +
+                "\nWolne_miejsca=" + getWolne_miejsca() +
+                "\ntrasa=" + getTrasa() +
+                "\nCzas_odlotu=" + getCzas_odlotu() +
+                "\nCzas_przylotu=" + getCzas_przylotu() +
                 '}';
     }
 }

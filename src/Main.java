@@ -4,11 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Locale;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+
 public class Main {
    public static void main(String[] args) {
        Sys_rezerwacji systemRezerwacji = new Sys_rezerwacji();
@@ -242,34 +240,33 @@ public class Main {
                        System.out.println("Generuj loty - 1\nWyświetl listę dostępnych lotów - 2" + "\nWyjście - 0");
                        wybor2 = wybierz.nextInt();
                        if(wybor2==1){
-                           ArrayList<Trasa> trasy = systemRezerwacji.getListaTras();
-                           ArrayList<Samolot> samoloty = systemRezerwacji.getListaSamolotow();
+                           List<Trasa> trasy = new ArrayList<>(systemRezerwacji.getListaTras());
+                           Iterator<Trasa> iter_trasa = trasy.iterator();
+                           List<Samolot> samoloty = new ArrayList<>(systemRezerwacji.getListaSamolotow());
+                           Iterator<Samolot> iter_samolot = samoloty.iterator();
                            int day = ThreadLocalRandom.current().nextInt(1, 29);
                            int month = ThreadLocalRandom.current().nextInt(1,13);
                            int year = ThreadLocalRandom.current().nextInt(2023,2025);
                            int hour = ThreadLocalRandom.current().nextInt(0,24);
                            int minute = ThreadLocalRandom.current().nextInt(0,60);
                            int sec = ThreadLocalRandom.current().nextInt(0,60);
-                           int id = new Random().nextInt();
+
                            LocalDate data = LocalDate.of(year,month,day);
                            LocalTime time = LocalTime.of(hour,minute,sec);
                            LocalDateTime czas = LocalDateTime.of(data,time);
-                           System.out.println(czas);
-                           //System.out.println(time);
-                           if(!trasy.isEmpty()){
-                               for(Trasa trasa : trasy){
-                                   for(Samolot samolot : samoloty){
-                                       if(samolot.getZasieg()>trasa.getDystans()){
 
-                                           System.out.println(trasa);
-                                           Lot l = new Lot(id,samolot,trasa,czas);
-                                           System.out.println(l);
-                                           systemRezerwacji.dodajLot(l);
-                                           System.out.println(systemRezerwacji.getListaLotow());
-                                           break;
-                                       }
+                           while(iter_trasa.hasNext()){
+                               Trasa trasa = iter_trasa.next();
+                               while(iter_samolot.hasNext()){
+                                   Samolot samolot = iter_samolot.next();
+                                   if(samolot.getZasieg()>trasa.getDystans()){
+                                       Lot l = new Lot(trasa.getId(), samolot,trasa,czas);
+                                       systemRezerwacji.dodajLot(l);
+                                       iter_samolot.remove();
+                                       break;
                                    }
                                }
+                               iter_trasa.remove();
                            }
                        }
                        if(wybor2==2){

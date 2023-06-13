@@ -1,12 +1,12 @@
-15
-565.6
-Lotnisko końcowe
+31
+400.0
 Lotnisko Kraków
-90
-
-889
-1200.0
-Lotnisko Londyn
 Lotnisko Praga
-120
+75
+
+12
+1250.78
+Lotnisko Londyn
+Lotnisko końcowe
+180
 

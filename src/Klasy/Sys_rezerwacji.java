@@ -172,13 +172,14 @@ public class Sys_rezerwacji {
         Scanner scanner = new Scanner(plikLot);
 
         Lot lot;
-        String l1,l2,l3,l4;
+        String l1,l2,l3,l4,l5;
         while(scanner.hasNext())
         {
             l1 = scanner.nextLine();
             l2 = scanner.nextLine();
             l3 = scanner.nextLine();
             l4 = scanner.nextLine();
+            l5 = scanner.nextLine();
 
             Samolot naszSamolot = null;
             for(Samolot samolot : samoloty)

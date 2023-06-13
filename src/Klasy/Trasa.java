@@ -49,11 +49,11 @@ public class Trasa {
     @Override
     public String toString() {
         return "Trasa{" +
-                "id=" + id +
-                ", dystans=" + dystans +
-                ", miejsce_odlotu=" + miejsce_odlotu +
-                ", miejsce_przylotu=" + miejsce_przylotu +
-                ", czas=" + czas +
+                "\n\tID= " + getId() +
+                "\n\tdystans= " + getDystans() +
+                "\n\tmiejsce_odlotu= " + getMiejsce_odlotu() +
+                "\n\tmiejsce_przylotu= " + getMiejsce_przylotu() +
+                "\n\tczas= " + getCzas() +
                 '}';
     }
 }
