@@ -1,4 +1,6 @@
 import Klasy.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Locale;
 public class Main {
@@ -75,30 +77,62 @@ public class Main {
                        if(wybor2==1){
                            Scanner trasa = new Scanner(System.in);
                            trasa.useLocale(Locale.US);
-                           System.out.println("Wprowadź dane lotniska poczatkowego\nNazwa Lotniska");
-                           String nazwa_lotniska = trasa.nextLine();
-                           System.out.println("Miejscowość w której znajduje się lotnisko ");
-                           String miejscowosc = trasa.nextLine();
-                           System.out.println("Podaj kraj w którym znajduje się lotnisko");
-                           String kraj = trasa.nextLine();
-                           Lotnisko lp = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
-                           System.out.println("Wprowadź dane lotniska końcowego\nNazwa Lotniska");
-                           nazwa_lotniska = trasa.nextLine();
-                           System.out.println("Miejscowość w której znajduje się lotnisko ");
-                           miejscowosc = trasa.nextLine();
-                           System.out.println("Podaj kraj w którym znajduje się lotnisko");
-                           kraj = trasa.nextLine();
-                           Lotnisko lk = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
-                           System.out.println("Podaj odległość między lotniskami");
-                           float odleglosc = trasa.nextFloat();
-                           System.out.println("Podaj czas trwania lotu (w minutach)");
-                           int czas = trasa.nextInt();
-                           System.out.println("Podaj id trasy");
-                           int id = trasa.nextInt();
-                           Trasa t = new Trasa(id,odleglosc,lp,lk,czas);
-                           systemRezerwacji.dodajLotnisko(lp);
-                           systemRezerwacji.dodajLotnisko(lk);
-                           systemRezerwacji.dodajTrase(t);
+                           if(systemRezerwacji.getListaLotnisk().isEmpty()){
+                               System.out.println("Wprowadź dane lotniska poczatkowego\nNazwa Lotniska");
+                               String nazwa_lotniska = trasa.nextLine();
+                               System.out.println("Miejscowość w której znajduje się lotnisko ");
+                               String miejscowosc = trasa.nextLine();
+                               System.out.println("Podaj kraj w którym znajduje się lotnisko");
+                               String kraj = trasa.nextLine();
+                               Lotnisko lp = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
+                               System.out.println("Wprowadź dane lotniska końcowego\nNazwa Lotniska");
+                               nazwa_lotniska = trasa.nextLine();
+                               System.out.println("Miejscowość w której znajduje się lotnisko ");
+                               miejscowosc = trasa.nextLine();
+                               System.out.println("Podaj kraj w którym znajduje się lotnisko");
+                               kraj = trasa.nextLine();
+                               Lotnisko lk = new Lotnisko(nazwa_lotniska,miejscowosc,kraj);
+                               System.out.println("Podaj odległość między lotniskami");
+                               float odleglosc = trasa.nextFloat();
+                               System.out.println("Podaj czas trwania lotu (w minutach)");
+                               int czas = trasa.nextInt();
+                               System.out.println("Podaj id trasy");
+                               int id = trasa.nextInt();
+                               Trasa t = new Trasa(id,odleglosc,lp,lk,czas);
+                               systemRezerwacji.dodajLotnisko(lp);
+                               systemRezerwacji.dodajLotnisko(lk);
+                               systemRezerwacji.dodajTrase(t);
+                           }
+                           else{
+                               System.out.println("Lista dostępnych lotnisk");
+                               systemRezerwacji.pokazLotniska();
+                               System.out.println("Wybierz lotnisko początkowe");
+                               String nazwa = trasa.nextLine();
+                               ArrayList<Lotnisko> lotniska = systemRezerwacji.getListaLotnisk();
+                               Lotnisko lotn_pocz=null,lotn_kon=null;
+                               for(Lotnisko lotnisko : lotniska){
+                                   if(lotnisko.getNazwa().equals(nazwa)){
+                                       lotn_pocz = new Lotnisko(lotnisko);
+                                       break;
+                                   }
+                               }
+                               System.out.println("Wybierz lotnisko końcowe");
+                               nazwa = trasa.nextLine();
+                               for(Lotnisko lotnisko : lotniska){
+                                   if(lotnisko.getNazwa().equals(nazwa)){
+                                       lotn_kon = new Lotnisko(lotnisko);
+                                       break;
+                                   }
+                               }
+                               System.out.println("Podaj odległość między lotniskami");
+                               float odleglosc = trasa.nextFloat();
+                               System.out.println("Podaj czas trwania lotu (w minutach)");
+                               int czas = trasa.nextInt();
+                               System.out.println("Podaj id trasy");
+                               int id = trasa.nextInt();
+                               Trasa t = new Trasa(id,odleglosc,lotn_pocz,lotn_kon,czas);
+                               systemRezerwacji.dodajTrase(t);
+                           }
                        }
                        if(wybor2==2){
                             Scanner trasa = new Scanner(System.in);
