@@ -1,8 +1,14 @@
 import Klasy.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Locale;
+import java.util.concurrent.ThreadLocalRandom;
 public class Main {
    public static void main(String[] args) {
        Sys_rezerwacji systemRezerwacji = new Sys_rezerwacji();
@@ -20,7 +26,8 @@ public class Main {
            System.out.println("3.Samoloty");
            System.out.println("4.Lotniska");
            System.out.println("5.Rezerwacja");
-           System.out.println("6.Exit");
+           System.out.println("6.Loty");
+           System.out.println("7.Exit");
 
            Scanner scanner = new Scanner(System.in);
            String wybor;
@@ -201,8 +208,77 @@ public class Main {
                        }
                    }while(wybor2!=0);
                    break;
-               case 5: break;
-               case 6: kontynuacja=false; break;
+               case 5:
+                   do{
+                       System.out.println("Dodaj rezerwacje dla pasażera - 1\nUsun rezerwację dla pasażera - 2" +
+                               "\nDodaj rezerwację dla firmy - 3 \nUsun rezerwacje dla firmy - 4\nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
+                       if(wybor2==1){
+                           Scanner pasazer = new Scanner(System.in);
+                           System.out.println("Podaj dane pasażera:\nWprowadź imie");
+                           String imie = pasazer.nextLine();
+                           System.out.println("Podaj nazwisko");
+                           String nazwisko = pasazer.nextLine();
+                           System.out.println("Podaj numer kontaktowy (9 cyfr)");
+                           int nr_tel = pasazer.nextInt();
+                           System.out.println("Podaj ID");
+                           int id = pasazer.nextInt();
+                           Pasazer p = new Pasazer(id,imie,nazwisko,nr_tel);
+                           System.out.println("Podaj ilość miejsc");
+                           int miejsca = pasazer.nextInt();
+                           Rezerwacja r = new Rezerwacja(p,miejsca);
+
+                       }
+                       if(wybor2==2){
+
+                       }
+                       if(wybor2==3){
+
+                       }
+                   }while(wybor2!=0);
+                   break;
+               case 6:
+                   do{
+                       System.out.println("Generuj loty - 1\nWyświetl listę dostępnych lotów - 2" + "\nWyjście - 0");
+                       wybor2 = wybierz.nextInt();
+                       if(wybor2==1){
+                           ArrayList<Trasa> trasy = systemRezerwacji.getListaTras();
+                           ArrayList<Samolot> samoloty = systemRezerwacji.getListaSamolotow();
+                           int day = ThreadLocalRandom.current().nextInt(1, 29);
+                           int month = ThreadLocalRandom.current().nextInt(1,13);
+                           int year = ThreadLocalRandom.current().nextInt(2023,2025);
+                           int hour = ThreadLocalRandom.current().nextInt(0,24);
+                           int minute = ThreadLocalRandom.current().nextInt(0,60);
+                           int sec = ThreadLocalRandom.current().nextInt(0,60);
+                           int id = new Random().nextInt();
+                           LocalDate data = LocalDate.of(year,month,day);
+                           LocalTime time = LocalTime.of(hour,minute,sec);
+                           LocalDateTime czas = LocalDateTime.of(data,time);
+                           System.out.println(czas);
+                           //System.out.println(time);
+                           if(!trasy.isEmpty()){
+                               for(Trasa trasa : trasy){
+                                   for(Samolot samolot : samoloty){
+                                       if(samolot.getZasieg()>trasa.getDystans()){
+
+                                           System.out.println(trasa);
+                                           Lot l = new Lot(id,samolot,trasa,czas);
+                                           System.out.println(l);
+                                           systemRezerwacji.dodajLot(l);
+                                           System.out.println(systemRezerwacji.getListaLotow());
+                                           break;
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                       if(wybor2==2){
+                           System.out.println(systemRezerwacji.getListaLotow());
+                       }
+                   }while(wybor2!=0);
+
+                   break;
+               case 7: kontynuacja=false; break;
                default: System.out.println("Nieprawidłowy wybór!\n");
            }
        }

@@ -1,7 +1,10 @@
 package Klasy;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+
 
 public class Lot {
     private int Id;
@@ -19,6 +22,7 @@ public class Lot {
         Wolne_miejsca = s.getLiczba_miejsc();
         Czas_przylotu= czas_odlotu.plusMinutes(trasa.getCzas());
     }
+
 
     public int getId() {
         return Id;
@@ -58,7 +62,7 @@ public class Lot {
 
     public String wypisz()
     {
-        return Id + "\n" + samolot.getNazwa() + "\n" + trasa.getId() + "\n" + Czas_odlotu + "\n";
+        return getId() + "\n" + samolot.getNazwa() + "\n" + trasa.getId() + "\n" + Czas_odlotu + "\n";
     }
 
     @Override

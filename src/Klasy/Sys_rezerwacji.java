@@ -197,7 +197,7 @@ public class Sys_rezerwacji {
                 }
             }
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
             lot = new Lot(Integer.parseInt(l1),naszSamolot,naszaTrasa, LocalDateTime.parse(l4, formatter));
             loty.add(lot);
